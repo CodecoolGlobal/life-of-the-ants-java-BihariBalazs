@@ -20,11 +20,15 @@ public abstract class Ant {
         this.position.setY(position.getY() + direction.getY());
     }
 
+    public int distanceFrom(Ant otherAnt) {
+        return Math.abs(position.getX() - otherAnt.position.getX()) + Math.abs(position.getY() - otherAnt.position.getY());
+    }
+
     public Direction directionTo(Ant otherAnt){
         if (Math.abs(position.getX() - otherAnt.position.getX()) > Math.abs(position.getY() - otherAnt.position.getY())){
            return position.getX() > otherAnt.position.getX() ? Direction.WEST : Direction.EAST;
         } else {
-            return position.getY() > otherAnt.position.getY() ? Direction.NORTH : Direction.SOUTH;
+            return position.getY() > otherAnt.position.getY() ? Direction.SOUTH : Direction.NORTH;
         }
     }
 
