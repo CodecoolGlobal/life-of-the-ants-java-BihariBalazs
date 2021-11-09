@@ -21,4 +21,9 @@ public enum Direction {
         public static Direction getRandomDirection(){
             return Direction.values()[random.nextInt(numberOfDirections)];
         }
+
+        public Direction turnLeft(){
+            int ord = (this.ordinal() - 1 + numberOfDirections) % numberOfDirections;
+            return Direction.values()[ord];
+        }
     }
