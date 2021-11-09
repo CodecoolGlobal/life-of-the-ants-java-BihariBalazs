@@ -43,4 +43,10 @@ public class Colony {
             addAnt(new Drone(getRandomNumber(), getRandomNumber(), queen));
         }
     }
+
+    public void step(){
+        for (Ant ant: ants){
+            ant.step();
+        }
+    }
 }
