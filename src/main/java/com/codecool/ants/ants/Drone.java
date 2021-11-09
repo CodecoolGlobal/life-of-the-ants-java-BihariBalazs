@@ -1,6 +1,6 @@
 package com.codecool.ants.ants;
 
-public class Drone extends Ant{
+public class Drone extends Ant {
     private static final int MATING_DISTANCE = 1;
     private static final int MATING_DURATION = 10;
     private Queen queen;
@@ -13,22 +13,29 @@ public class Drone extends Ant{
 
     @Override
     public void step() {
-        if (distanceFrom(queen) > MATING_DISTANCE){
-            move(directionTo(queen));
-        }else {
-            tryMating();
+        if (counterAfterMating > 0) {
+            counterAfterMating--;
+            if (counterAfterMating == 0) {
+                kickOff();
+            }
+        } else {
+            if (distanceFrom(queen) > MATING_DISTANCE) {
+                move(directionTo(queen));
+            } else {
+                tryMating();
+            }
         }
     }
 
-    private void tryMating(){
-        if (queen.isMatingMood()){
+    private void tryMating() {
+        if (queen.isMatingMood()) {
             mating();
-        }else{
+        } else {
             kickOff();
         }
     }
 
-    private void mating(){
+    private void mating() {
         queen.awaitForMating();
         counterAfterMating = MATING_DURATION;
     }
