@@ -10,6 +10,7 @@ public class  Simulator {
         colony.createAnts(5, 4, 2);
         for (int time = 0; time < ROUNDS; time++){
             System.out.println(colony);
+            colony.step();
         }
     }
 
