@@ -9,4 +9,10 @@ public class Soldier extends Ant{
         super(x, y);
         this.direction = direction;
     }
+
+    @Override
+    public void step() {
+        move(direction);
+        direction = direction.turnLeft();
+    }
 }
