@@ -18,6 +18,10 @@ public class Queen extends Ant{
         }
     }
 
+    public boolean isMatingMood(){
+        return counterAfterMating == 0;
+    }
+
     public void awaitForMating(){
         counterAfterMating = random.nextInt(MATING_AWAIT_MIN) + MATING_AWAIT_MIN;
     }
