@@ -8,8 +8,7 @@ public abstract class Ant {
         private Position position;
 
     public Ant(int x, int y) {
-        this.position.setX(x);
-        this.position.setY(y);
+        this.position = new Position(x, y);
     }
 
     public void move(Direction direction){
@@ -19,4 +18,8 @@ public abstract class Ant {
 
     public abstract void step();
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " (" + position.getX() + ", " + position.getY() + ")";
+    }
 }

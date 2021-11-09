@@ -49,4 +49,9 @@ public class Colony {
             ant.step();
         }
     }
+
+    @Override
+    public String toString() {
+        return ants.toString();
+    }
 }
