@@ -26,4 +26,12 @@ public enum Direction {
             int ord = (this.ordinal() - 1 + numberOfDirections) % numberOfDirections;
             return Direction.values()[ord];
         }
+
+    public int getX() {
+        return x;
     }
+
+    public int getY() {
+        return y;
+    }
+}
