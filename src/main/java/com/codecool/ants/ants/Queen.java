@@ -1,6 +1,5 @@
 package com.codecool.ants.ants;
 
-import java.util.Random;
 
 public class Queen extends Ant{
     private static final int MATING_AWAIT_MIN = 50;

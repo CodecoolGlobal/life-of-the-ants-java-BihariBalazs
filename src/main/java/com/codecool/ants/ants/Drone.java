@@ -15,6 +15,22 @@ public class Drone extends Ant{
     public void step() {
         if (distanceFrom(queen) > MATING_DISTANCE){
             move(directionTo(queen));
+        }else {
+            tryMating();
         }
     }
+
+    private void tryMating(){
+        if (queen.isMatingMood()){
+            mating();
+        }else{
+            kickOff();
+        }
+    }
+
+    private void mating(){
+        queen.awaitForMating();
+        counterAfterMating = MATING_DURATION;
+    }
+
 }
