@@ -7,7 +7,7 @@ public class Drone extends Ant {
     private int counterAfterMating;
 
     public Drone(int x, int y, Queen queen) {
-        super(x, y, "D");
+        super(x, y, " D ");
         this.queen = queen;
     }
 

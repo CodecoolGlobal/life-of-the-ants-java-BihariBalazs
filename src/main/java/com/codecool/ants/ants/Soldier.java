@@ -6,7 +6,7 @@ public class Soldier extends Ant{
     private Direction direction;
 
     public Soldier(int x, int y, Direction direction) {
-        super(x, y, "S");
+        super(x, y, " S ");
         this.direction = direction;
     }
 

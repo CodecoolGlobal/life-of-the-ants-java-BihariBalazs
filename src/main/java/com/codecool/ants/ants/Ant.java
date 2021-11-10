@@ -7,13 +7,15 @@ import java.util.Random;
 
 
 public abstract class Ant {
+    public String type;
     static Random random = new Random();
 
-    private Position position;
-    private static final int KICK_DISTANCE_MAX = 100;
-    private static final int KICK_DISTANCE_MIN = 50;
+    public Position position;
+    private static final int KICK_DISTANCE_MAX = 40;
+    private static final int KICK_DISTANCE_MIN = 20;
 
-    public Ant(int x, int y) {
+    public Ant(int x, int y, String type) {
+        this.type = type;
         this.position = new Position(x, y);
     }
 
@@ -36,10 +38,6 @@ public abstract class Ant {
 
     public abstract void step();
 
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + " (" + position.getX() + ", " + position.getY() + ")";
-    }
 
     public void kickOff(){
         this.position.setX(random.nextInt(KICK_DISTANCE_MAX) - KICK_DISTANCE_MIN);
