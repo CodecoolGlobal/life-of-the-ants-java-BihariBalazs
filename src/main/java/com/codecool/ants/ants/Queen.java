@@ -7,7 +7,7 @@ public class Queen extends Ant{
 
 
     public Queen(int x, int y) {
-        super(x, y);
+        super(x, y, "Q");
     }
 
     @Override
