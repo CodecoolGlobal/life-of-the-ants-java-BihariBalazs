@@ -53,7 +53,7 @@ public class Colony {
     }
 
     public void newAnts() {
-        if (queen.getCounterAfterMating() > 45) {
+        if (queen.getCounterAfterMating() > 15) {
             createAnts((int) Math.round(Math.random()), (int) Math.round(Math.random()), (int) Math.round(Math.random()));
         }
     }
@@ -61,7 +61,12 @@ public class Colony {
     public void step() {
         for (Ant ant : ants) {
             ant.step();
+            ant.setLife(ant.getLife()-1);
         }
+    }
+
+    public void removeAnt(){
+        ants.removeIf(ant -> ant.getLife() == 0);
     }
 
     public String displayAnt(int x, int y) {

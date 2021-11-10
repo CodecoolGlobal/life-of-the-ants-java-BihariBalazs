@@ -9,20 +9,30 @@ import java.util.Random;
 public abstract class Ant {
     public String type;
     static Random random = new Random();
+    private int life;
 
     public Position position;
     private static final int KICK_DISTANCE = 20;
 
-    public Ant(int x, int y, String type) {
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public Ant(int x, int y, String type, int life) {
         this.type = type;
         this.position = new Position(x, y);
+        this.life = life;
     }
 
     public void move(Direction direction) {
-        if (position.getX() + direction.getX() <= Colony.getWidth() && position.getX() + direction.getX() >= 0) {
+        if (position.getX() + direction.getX() < Colony.getWidth() && position.getX() + direction.getX() > 0) {
             this.position.setX(position.getX() + direction.getX());
         }
-        if (position.getY() + direction.getY() <= Colony.getWidth() && position.getY() + direction.getY() >= 0) {
+        if (position.getY() + direction.getY() < Colony.getWidth() && position.getY() + direction.getY() > 0) {
             this.position.setY(position.getY() + direction.getY());
         }
     }

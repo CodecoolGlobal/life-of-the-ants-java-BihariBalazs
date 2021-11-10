@@ -9,12 +9,13 @@ public class  Simulator {
 
     public static void main(String[] args) throws InterruptedException {
         Colony colony = new Colony(20);
-        colony.createAnts(1, 1, 1);
+        colony.createAnts(2, 3, 1);
         for (int time = 0; time < ROUNDS; time++){
             colony.display();
             colony.newAnts();
             colony.step();
-            TimeUnit.SECONDS.sleep(2);
+            colony.removeAnt();
+            TimeUnit.SECONDS.sleep(1);
         }
     }
 
