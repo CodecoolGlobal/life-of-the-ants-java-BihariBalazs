@@ -17,6 +17,10 @@ public class Queen extends Ant{
         }
     }
 
+    public int getCounterAfterMating() {
+        return counterAfterMating;
+    }
+
     public boolean isMatingMood(){
         return counterAfterMating == 0;
     }

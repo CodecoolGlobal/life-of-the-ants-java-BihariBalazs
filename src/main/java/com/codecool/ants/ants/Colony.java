@@ -38,7 +38,9 @@ public class Colony {
     }
 
     public void createAnts(int numberOfWorkers, int numberOfSoldiers, int numberOfDrones) {
-        addAnt(new Queen(width / 2, width / 2));
+        if (queen == null) {
+            addAnt(new Queen(width / 2, width / 2));
+        }
         for (int i = 0; i < numberOfWorkers; i++) {
             addAnt(new Worker(getRandomNumber(), getRandomNumber()));
         }
@@ -50,13 +52,19 @@ public class Colony {
         }
     }
 
+    public void newAnts() {
+        if (queen.getCounterAfterMating() > 45) {
+            createAnts((int) Math.round(Math.random()), (int) Math.round(Math.random()), (int) Math.round(Math.random()));
+        }
+    }
+
     public void step() {
         for (Ant ant : ants) {
             ant.step();
         }
     }
 
-    public String displayAnt(int x, int y){
+    public String displayAnt(int x, int y) {
         for (Ant ant : ants) {
             if (x == ant.position.getX() && y == ant.position.getY()) {
                 return ant.type;
@@ -68,9 +76,9 @@ public class Colony {
     public void display() {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < width; j++) {
-                if(displayAnt(i, j) != null){
+                if (displayAnt(i, j) != null) {
                     System.out.print(displayAnt(i, j));
-                }else {
+                } else {
                     System.out.print(" . ");
                 }
             }

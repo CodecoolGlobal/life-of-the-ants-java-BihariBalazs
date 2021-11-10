@@ -11,8 +11,7 @@ public abstract class Ant {
     static Random random = new Random();
 
     public Position position;
-    private static final int KICK_DISTANCE_MAX = 40;
-    private static final int KICK_DISTANCE_MIN = 20;
+    private static final int KICK_DISTANCE = 20;
 
     public Ant(int x, int y, String type) {
         this.type = type;
@@ -44,7 +43,7 @@ public abstract class Ant {
 
 
     public void kickOff() {
-        this.position.setX(random.nextInt(KICK_DISTANCE_MAX) - KICK_DISTANCE_MIN);
-        this.position.setY(random.nextInt(KICK_DISTANCE_MAX) - KICK_DISTANCE_MIN);
+        this.position.setX(random.nextInt(KICK_DISTANCE));
+        this.position.setY(random.nextInt(KICK_DISTANCE));
     }
 }
