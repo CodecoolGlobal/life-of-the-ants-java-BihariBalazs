@@ -12,7 +12,7 @@ public class Soldier extends Ant{
 
     @Override
     public void step() {
-        move(direction);
         direction = direction.turnLeft();
+        move(direction);
     }
 }
