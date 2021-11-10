@@ -9,6 +9,11 @@ import java.util.Random;
 
 public class Colony {
     private static Random random = new Random();
+
+    public static int getWidth() {
+        return width;
+    }
+
     private static int width;
     private Queen queen;
     private List<Ant> ants = new ArrayList<>();
